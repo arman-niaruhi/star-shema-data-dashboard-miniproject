@@ -1,0 +1,9 @@
+material_id,material_description,product_category,brand,material_group,division
+MAT001,Laptop Pro 14,Electronics,Northwind,Hardware,Technology
+MAT002,Wireless Mouse,Accessories,Northwind,Peripherals,Technology
+MAT003,Office Chair,Furniture,UrbanWorks,Office,Workspace
+MAT004,Standing Desk,Furniture,UrbanWorks,Office,Workspace
+MAT005,4K Monitor,Electronics,Visionix,Displays,Technology
+MAT006,USB-C Dock,Accessories,Visionix,Peripherals,Technology
+MAT007,Noise-Cancel Headset,Audio,SoundFlow,Collaboration,Collaboration
+MAT008,Conference Camera,Audio,SoundFlow,Collaboration,Collaboration

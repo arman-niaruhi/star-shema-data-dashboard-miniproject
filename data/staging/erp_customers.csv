@@ -1,0 +1,11 @@
+sold_to_customer,customer_name,customer_city,customer_country,customer_segment,customer_group
+C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B
+C002,John Miller,Hamburg,Germany,SMB,B2B
+C003,Sofia Rossi,Milan,Italy,Consumer,Retail
+C004,Liam Dupont,Paris,France,Enterprise,B2B
+C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale
+C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail
+C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale
+C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B
+C009,Amelia Brown,Dublin,Ireland,Consumer,Retail
+C010,Yara Haddad,Brussels,Belgium,SMB,B2B

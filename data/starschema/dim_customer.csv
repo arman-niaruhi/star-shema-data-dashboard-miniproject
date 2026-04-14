@@ -1,0 +1,121 @@
+customer_key,sold_to_customer,customer_name,customer_city,customer_country,customer_segment,customer_group,sales_organization,distribution_channel
+1,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU01,Online
+2,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,DE01,Online
+3,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU02,Inside Sales
+4,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU02,Partner
+5,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU01,Partner
+6,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU01,Inside Sales
+7,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU01,Retail
+8,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU02,Retail
+9,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,DE01,Retail
+10,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,DE01,Inside Sales
+11,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,EU02,Online
+12,C001,Anna Schmidt,Berlin,Germany,Enterprise,B2B,DE01,Partner
+13,C002,John Miller,Hamburg,Germany,SMB,B2B,DE01,Online
+14,C002,John Miller,Hamburg,Germany,SMB,B2B,DE01,Retail
+15,C002,John Miller,Hamburg,Germany,SMB,B2B,EU01,Inside Sales
+16,C002,John Miller,Hamburg,Germany,SMB,B2B,EU01,Online
+17,C002,John Miller,Hamburg,Germany,SMB,B2B,EU02,Partner
+18,C002,John Miller,Hamburg,Germany,SMB,B2B,EU02,Retail
+19,C002,John Miller,Hamburg,Germany,SMB,B2B,EU02,Inside Sales
+20,C002,John Miller,Hamburg,Germany,SMB,B2B,EU02,Online
+21,C002,John Miller,Hamburg,Germany,SMB,B2B,EU01,Retail
+22,C002,John Miller,Hamburg,Germany,SMB,B2B,DE01,Inside Sales
+23,C002,John Miller,Hamburg,Germany,SMB,B2B,EU01,Partner
+24,C002,John Miller,Hamburg,Germany,SMB,B2B,DE01,Partner
+25,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU02,Inside Sales
+26,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU02,Online
+27,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,DE01,Retail
+28,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU01,Inside Sales
+29,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU02,Retail
+30,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,DE01,Online
+31,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU01,Retail
+32,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU01,Online
+33,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,DE01,Partner
+34,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU02,Partner
+35,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,EU01,Partner
+36,C003,Sofia Rossi,Milan,Italy,Consumer,Retail,DE01,Inside Sales
+37,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU01,Inside Sales
+38,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU02,Partner
+39,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU02,Inside Sales
+40,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU01,Partner
+41,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU01,Retail
+42,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU02,Online
+43,C004,Liam Dupont,Paris,France,Enterprise,B2B,DE01,Online
+44,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU01,Online
+45,C004,Liam Dupont,Paris,France,Enterprise,B2B,DE01,Retail
+46,C004,Liam Dupont,Paris,France,Enterprise,B2B,DE01,Partner
+47,C004,Liam Dupont,Paris,France,Enterprise,B2B,EU02,Retail
+48,C004,Liam Dupont,Paris,France,Enterprise,B2B,DE01,Inside Sales
+49,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,DE01,Inside Sales
+50,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,DE01,Retail
+51,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,DE01,Online
+52,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,DE01,Partner
+53,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU01,Inside Sales
+54,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU01,Online
+55,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU01,Retail
+56,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU02,Retail
+57,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU02,Partner
+58,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU02,Online
+59,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU02,Inside Sales
+60,C005,Maya Chen,Amsterdam,Netherlands,SMB,Wholesale,EU01,Partner
+61,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU01,Inside Sales
+62,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,DE01,Partner
+63,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,DE01,Inside Sales
+64,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU02,Partner
+65,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU02,Inside Sales
+66,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU01,Retail
+67,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU01,Online
+68,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU02,Online
+69,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU02,Retail
+70,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,DE01,Online
+71,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,EU01,Partner
+72,C006,Noah Jensen,Copenhagen,Denmark,Consumer,Retail,DE01,Retail
+73,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU02,Inside Sales
+74,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU01,Partner
+75,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,DE01,Retail
+76,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU01,Inside Sales
+77,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,DE01,Inside Sales
+78,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU02,Retail
+79,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU02,Partner
+80,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,DE01,Online
+81,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU01,Online
+82,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU01,Retail
+83,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,DE01,Partner
+84,C007,Elena Novak,Prague,Czech Republic,SMB,Wholesale,EU02,Online
+85,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU02,Retail
+86,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU02,Partner
+87,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU02,Inside Sales
+88,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,DE01,Retail
+89,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,DE01,Partner
+90,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU01,Retail
+91,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU01,Partner
+92,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU01,Inside Sales
+93,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU01,Online
+94,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,DE01,Online
+95,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,DE01,Inside Sales
+96,C008,Lucas Silva,Lisbon,Portugal,Enterprise,B2B,EU02,Online
+97,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU02,Partner
+98,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,DE01,Inside Sales
+99,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU02,Inside Sales
+100,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU01,Online
+101,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,DE01,Partner
+102,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU01,Retail
+103,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU01,Inside Sales
+104,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,DE01,Online
+105,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU01,Partner
+106,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU02,Retail
+107,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,EU02,Online
+108,C009,Amelia Brown,Dublin,Ireland,Consumer,Retail,DE01,Retail
+109,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,DE01,Retail
+110,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU01,Online
+111,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU01,Inside Sales
+112,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU02,Inside Sales
+113,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU02,Online
+114,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU01,Partner
+115,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU02,Partner
+116,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,DE01,Partner
+117,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,DE01,Inside Sales
+118,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,DE01,Online
+119,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU02,Retail
+120,C010,Yara Haddad,Brussels,Belgium,SMB,B2B,EU01,Retail
