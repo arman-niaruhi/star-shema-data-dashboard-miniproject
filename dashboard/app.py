@@ -99,13 +99,13 @@ profit_margin = (total_profit / total_revenue * 100) if total_revenue else 0
 avg_shipping_days = filtered_df["shipping_days"].mean()
 
 st.header("Executive Overview")
-metric_cols = st.columns(6)
+metric_cols = st.columns(3)
 metric_cols[0].metric("Revenue", f"{total_revenue:,.2f}")
 metric_cols[1].metric("Profit", f"{total_profit:,.2f}")
 metric_cols[2].metric("Margin %", f"{profit_margin:,.1f}%")
-metric_cols[3].metric("Discounts", f"{total_discount:,.2f}")
-metric_cols[4].metric("Sales Documents", f"{total_orders:,}")
-metric_cols[5].metric("Avg Shipping Days", f"{avg_shipping_days:,.1f}")
+st.caption(
+    f"Sales Documents: {total_orders:,} | Discounts: {total_discount:,.2f} | Avg Shipping Days: {avg_shipping_days:,.1f}"
+)
 
 st.header("Commercial Breakdown")
 left_col, right_col = st.columns((1.2, 1))
