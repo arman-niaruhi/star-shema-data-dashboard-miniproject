@@ -36,7 +36,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: staging-data
-          path: data/staging/source_sales.csv
+          path: |
+            data/staging/erp_customers.csv
+            data/staging/erp_materials.csv
+            data/staging/erp_orders.csv
+            data/staging/erp_fulfillment.csv
 
   starschema:
     runs-on: ubuntu-latest
@@ -107,7 +111,10 @@ jobs:
 
       - name: Validate generated files
         run: |
-          test -f data/staging/source_sales.csv
+          test -f data/staging/erp_customers.csv
+          test -f data/staging/erp_materials.csv
+          test -f data/staging/erp_orders.csv
+          test -f data/staging/erp_fulfillment.csv
           test -f data/starschema/dim_customer.csv
           test -f data/starschema/dim_product.csv
           test -f data/starschema/dim_date.csv
@@ -120,6 +127,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/staging/source_sales.csv data/starschema
+          git add data/staging/erp_customers.csv data/staging/erp_materials.csv data/staging/erp_orders.csv data/staging/erp_fulfillment.csv data/starschema
           git diff --cached --quiet || git commit -m "Update starschema data"
           git push
