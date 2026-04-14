@@ -1,0 +1,16 @@
+services:
+  staging:
+    build:
+      context: ./staging
+    container_name: starschema-staging
+    volumes:
+      - ./data:/data
+
+  starschema:
+    build:
+      context: ./starschema
+    container_name: starschema-business
+    volumes:
+      - ./data:/data
+    depends_on:
+      - staging
