@@ -98,134 +98,142 @@ total_orders = filtered_df["sales_id"].nunique()
 profit_margin = (total_profit / total_revenue * 100) if total_revenue else 0
 avg_shipping_days = filtered_df["shipping_days"].mean()
 
-st.header("Executive Overview")
-overview_cols = st.columns(3)
+tab_overview, tab_commercial, tab_trends, tab_insights, tab_operations, tab_details = st.tabs(
+    ["Overview", "Commercial", "Trends", "Insights", "Operations", "Details"]
+)
 
-with overview_cols[0]:
-    st.subheader("Revenue")
-    st.metric("Revenue", f"{total_revenue:,.2f}")
+with tab_overview:
+    st.header("Executive Overview")
+    overview_cols = st.columns(3)
 
-with overview_cols[1]:
-    st.subheader("Profit")
-    st.metric("Profit", f"{total_profit:,.2f}")
+    with overview_cols[0]:
+        st.subheader("Revenue")
+        st.metric("Revenue", f"{total_revenue:,.2f}")
 
-with overview_cols[2]:
-    st.subheader("Margin")
-    st.metric("Margin %", f"{profit_margin:,.1f}%")
+    with overview_cols[1]:
+        st.subheader("Profit")
+        st.metric("Profit", f"{total_profit:,.2f}")
 
-support_cols = st.columns(3)
+    with overview_cols[2]:
+        st.subheader("Margin")
+        st.metric("Margin %", f"{profit_margin:,.1f}%")
 
-with support_cols[0]:
-    st.subheader("Sales Documents")
-    st.metric("Count", f"{total_orders:,}")
+    support_cols = st.columns(3)
 
-with support_cols[1]:
-    st.subheader("Discounts")
-    st.metric("Discount Amount", f"{total_discount:,.2f}")
+    with support_cols[0]:
+        st.subheader("Sales Documents")
+        st.metric("Count", f"{total_orders:,}")
 
-with support_cols[2]:
-    st.subheader("Shipping")
-    st.metric("Avg Shipping Days", f"{avg_shipping_days:,.1f}")
+    with support_cols[1]:
+        st.subheader("Discounts")
+        st.metric("Discount Amount", f"{total_discount:,.2f}")
 
-st.header("Commercial Breakdown")
-left_col, right_col = st.columns((1.2, 1))
+    with support_cols[2]:
+        st.subheader("Shipping")
+        st.metric("Avg Shipping Days", f"{avg_shipping_days:,.1f}")
 
-with left_col:
-    st.subheader(f"{chart_metric_name} by {chart_dimension_name}")
-    breakdown = aggregate_metric(filtered_df, chart_dimension, chart_metric_name).head(top_n)
-    st.bar_chart(breakdown.set_index(chart_dimension))
+with tab_commercial:
+    st.header("Commercial Breakdown")
+    left_col, right_col = st.columns((1.2, 1))
 
-with right_col:
-    st.subheader("Top Materials by Revenue")
-    top_products = (
-        filtered_df.groupby(["material_description", "brand"], as_index=False)["amount"]
-        .sum()
-        .sort_values("amount", ascending=False)
-        .head(top_n)
-        .rename(columns={"amount": "revenue"})
-    )
-    st.dataframe(top_products, use_container_width=True, hide_index=True)
+    with left_col:
+        st.subheader(f"{chart_metric_name} by {chart_dimension_name}")
+        breakdown = aggregate_metric(filtered_df, chart_dimension, chart_metric_name).head(top_n)
+        st.bar_chart(breakdown.set_index(chart_dimension))
 
-st.header("Trend Analysis")
-trend_cols = st.columns(2)
+    with right_col:
+        st.subheader("Top Materials by Revenue")
+        top_products = (
+            filtered_df.groupby(["material_description", "brand"], as_index=False)["amount"]
+            .sum()
+            .sort_values("amount", ascending=False)
+            .head(top_n)
+            .rename(columns={"amount": "revenue"})
+        )
+        st.dataframe(top_products, use_container_width=True, hide_index=True)
 
-with trend_cols[0]:
-    st.subheader("Monthly Revenue Trend")
-    monthly_revenue = (
-        filtered_df.groupby(["year", "month", "month_name"], as_index=False)["amount"]
-        .sum()
-        .sort_values(["year", "month"])
-    )
-    monthly_revenue["period"] = monthly_revenue["month_name"].str[:3] + " " + monthly_revenue["year"].astype(str)
-    st.line_chart(monthly_revenue.set_index("period")[["amount"]])
+with tab_trends:
+    st.header("Trend Analysis")
+    trend_cols = st.columns(2)
 
-with trend_cols[1]:
-    st.subheader("Monthly Profit Trend")
-    monthly_profit = (
-        filtered_df.groupby(["year", "month", "month_name"], as_index=False)["profit"]
-        .sum()
-        .sort_values(["year", "month"])
-    )
-    monthly_profit["period"] = monthly_profit["month_name"].str[:3] + " " + monthly_profit["year"].astype(str)
-    st.line_chart(monthly_profit.set_index("period")[["profit"]])
+    with trend_cols[0]:
+        st.subheader("Monthly Revenue Trend")
+        monthly_revenue = (
+            filtered_df.groupby(["year", "month", "month_name"], as_index=False)["amount"]
+            .sum()
+            .sort_values(["year", "month"])
+        )
+        monthly_revenue["period"] = monthly_revenue["month_name"].str[:3] + " " + monthly_revenue["year"].astype(str)
+        st.line_chart(monthly_revenue.set_index("period")[["amount"]])
 
-st.header("Customer And Organization Insights")
-insight_cols = st.columns(3)
+    with trend_cols[1]:
+        st.subheader("Monthly Profit Trend")
+        monthly_profit = (
+            filtered_df.groupby(["year", "month", "month_name"], as_index=False)["profit"]
+            .sum()
+            .sort_values(["year", "month"])
+        )
+        monthly_profit["period"] = monthly_profit["month_name"].str[:3] + " " + monthly_profit["year"].astype(str)
+        st.line_chart(monthly_profit.set_index("period")[["profit"]])
 
-with insight_cols[0]:
-    st.subheader("Revenue by Customer Segment")
-    segment_mix = (
-        filtered_df.groupby("customer_segment", as_index=False)["amount"]
-        .sum()
-        .sort_values("amount", ascending=False)
-        .rename(columns={"amount": "revenue"})
-    )
-    st.dataframe(segment_mix, use_container_width=True, hide_index=True)
+with tab_insights:
+    st.header("Customer And Organization Insights")
+    insight_cols = st.columns(3)
 
-with insight_cols[1]:
-    st.subheader("Revenue by Distribution Channel")
-    channel_mix = (
-        filtered_df.groupby("distribution_channel", as_index=False)["amount"]
-        .sum()
-        .sort_values("amount", ascending=False)
-        .rename(columns={"amount": "revenue"})
-    )
-    st.dataframe(channel_mix, use_container_width=True, hide_index=True)
+    with insight_cols[0]:
+        st.subheader("Revenue by Customer Segment")
+        segment_mix = (
+            filtered_df.groupby("customer_segment", as_index=False)["amount"]
+            .sum()
+            .sort_values("amount", ascending=False)
+            .rename(columns={"amount": "revenue"})
+        )
+        st.dataframe(segment_mix, use_container_width=True, hide_index=True)
 
-with insight_cols[2]:
-    st.subheader("Revenue by Sales Organization")
-    org_mix = (
-        filtered_df.groupby("sales_organization", as_index=False)["amount"]
-        .sum()
-        .sort_values("amount", ascending=False)
-        .rename(columns={"amount": "revenue"})
-    )
-    st.dataframe(org_mix, use_container_width=True, hide_index=True)
+    with insight_cols[1]:
+        st.subheader("Revenue by Distribution Channel")
+        channel_mix = (
+            filtered_df.groupby("distribution_channel", as_index=False)["amount"]
+            .sum()
+            .sort_values("amount", ascending=False)
+            .rename(columns={"amount": "revenue"})
+        )
+        st.dataframe(channel_mix, use_container_width=True, hide_index=True)
 
-st.header("Fulfillment View")
-ops_cols = st.columns(2)
+    with insight_cols[2]:
+        st.subheader("Revenue by Sales Organization")
+        org_mix = (
+            filtered_df.groupby("sales_organization", as_index=False)["amount"]
+            .sum()
+            .sort_values("amount", ascending=False)
+            .rename(columns={"amount": "revenue"})
+        )
+        st.dataframe(org_mix, use_container_width=True, hide_index=True)
 
-with ops_cols[0]:
-    st.subheader("Shipping Performance")
-    shipping_view = (
-        filtered_df.groupby("shipping_mode", as_index=False)
-        .agg(avg_shipping_days=("shipping_days", "mean"), revenue=("amount", "sum"))
-        .sort_values("revenue", ascending=False)
-    )
-    shipping_view["avg_shipping_days"] = shipping_view["avg_shipping_days"].round(1)
-    st.dataframe(shipping_view, use_container_width=True, hide_index=True)
+with tab_operations:
+    st.header("Fulfillment View")
+    ops_cols = st.columns(2)
 
-with ops_cols[1]:
-    st.subheader("Payment Terms")
-    payment_view = (
-        filtered_df.groupby("payment_terms", as_index=False)["amount"]
-        .sum()
-        .sort_values("amount", ascending=False)
-        .rename(columns={"amount": "revenue"})
-    )
-    st.dataframe(payment_view, use_container_width=True, hide_index=True)
+    with ops_cols[0]:
+        st.subheader("Shipping Performance")
+        shipping_view = (
+            filtered_df.groupby("shipping_mode", as_index=False)
+            .agg(avg_shipping_days=("shipping_days", "mean"), revenue=("amount", "sum"))
+            .sort_values("revenue", ascending=False)
+        )
+        shipping_view["avg_shipping_days"] = shipping_view["avg_shipping_days"].round(1)
+        st.dataframe(shipping_view, use_container_width=True, hide_index=True)
 
-st.header("Detailed ERP Records")
+    with ops_cols[1]:
+        st.subheader("Payment Terms")
+        payment_view = (
+            filtered_df.groupby("payment_terms", as_index=False)["amount"]
+            .sum()
+            .sort_values("amount", ascending=False)
+            .rename(columns={"amount": "revenue"})
+        )
+        st.dataframe(payment_view, use_container_width=True, hide_index=True)
+
 display_columns = [
     "sales_id",
     "sales_document_item",
@@ -249,16 +257,19 @@ display_columns = [
     "amount",
     "profit",
 ]
-st.dataframe(
-    filtered_df[display_columns].rename(columns={"full_date": "order_date"}),
-    use_container_width=True,
-    hide_index=True,
-)
 
-csv_data = filtered_df[display_columns].to_csv(index=False).encode("utf-8")
-st.download_button(
-    "Download filtered data",
-    data=csv_data,
-    file_name="filtered_erp_sales_data.csv",
-    mime="text/csv",
-)
+with tab_details:
+    st.header("Detailed ERP Records")
+    st.dataframe(
+        filtered_df[display_columns].rename(columns={"full_date": "order_date"}),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    csv_data = filtered_df[display_columns].to_csv(index=False).encode("utf-8")
+    st.download_button(
+        "Download filtered data",
+        data=csv_data,
+        file_name="filtered_erp_sales_data.csv",
+        mime="text/csv",
+    )
