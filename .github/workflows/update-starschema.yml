@@ -12,8 +12,70 @@ permissions:
   contents: write
 
 jobs:
-  rebuild-data:
+  staging:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas streamlit
+
+      - name: Build staging source data
+        run: python staging/build_staging.py
+
+      - name: Upload staging artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: staging-data
+          path: data/staging/source_sales.csv
+
+  starschema:
+    runs-on: ubuntu-latest
+    needs: staging
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas streamlit
+
+      - name: Download staging artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: staging-data
+          path: data/staging
+
+      - name: Build starschema data
+        run: python starschema/build_starschema.py
+
+      - name: Upload starschema artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: starschema-data
+          path: data/starschema
+
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    needs:
+      - staging
+      - starschema
 
     steps:
       - name: Checkout repository
@@ -31,11 +93,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas streamlit
 
-      - name: Rebuild staging source data
-        run: python staging/build_staging.py
+      - name: Download staging artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: staging-data
+          path: data/staging
 
-      - name: Rebuild starschema data
-        run: python starschema/build_starschema.py
+      - name: Download starschema artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: starschema-data
+          path: data/starschema
 
       - name: Validate generated files
         run: |
